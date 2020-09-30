@@ -1,0 +1,19 @@
+<div *ngIf="!todoBoards" class="spinner-container">
+  <mat-spinner></mat-spinner>
+</div>
+
+<div *ngFor="let todoBoard of todoBoards">
+  {{ todoBoard.name }}
+  <ul>
+    <li *ngFor="let todoItem of todoBoard.todoItems">
+      <mat-checkbox
+        [checked]="todoItem.isComplete"
+        (change)="onCheck($event.checked, todoItem.todoId)"
+      >
+        <span [ngClass]="{ 'completed-item': todoItem.isComplete }">
+          {{ todoItem.content }}
+        </span>
+      </mat-checkbox>
+    </li>
+  </ul>
+</div>
