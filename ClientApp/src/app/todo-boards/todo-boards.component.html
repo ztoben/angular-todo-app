@@ -2,8 +2,11 @@
   <mat-spinner></mat-spinner>
 </div>
 
-<div *ngFor="let todoBoard of todoBoards">
-  {{ todoBoard.name }}
+<div class="todo-board" *ngFor="let todoBoard of todoBoards">
+  <mat-form-field class="full-width">
+    <mat-label>Name</mat-label>
+    <input matInput placeholder="Enter a name..." [value]="todoBoard.name" />
+  </mat-form-field>
   <ul>
     <li *ngFor="let todoItem of todoBoard.todoItems">
       <mat-checkbox
