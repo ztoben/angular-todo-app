@@ -3,10 +3,15 @@
 </div>
 
 <div class="todo-board" *ngFor="let todoBoard of todoBoards">
-  <mat-form-field class="full-width">
-    <mat-label>Name</mat-label>
-    <input matInput placeholder="Enter a name..." [value]="todoBoard.name" />
-  </mat-form-field>
+  <mat-spinner
+    class="saving-spinner"
+    *ngIf="isSaving"
+    [diameter]="25"
+  ></mat-spinner>
+  <todo-board-name-input
+    [todoBoard]="todoBoard"
+    (nameChanged)="handleNameChanged($event, todoBoard.id)"
+  ></todo-board-name-input>
   <ul>
     <li *ngFor="let todoItem of todoBoard.todoItems">
       <mat-checkbox

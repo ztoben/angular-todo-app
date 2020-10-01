@@ -12,21 +12,23 @@ import { MatInputModule } from "@angular/material/input";
 import { AppComponent } from "./app.component";
 import { NavMenuComponent } from "./nav-menu/nav-menu.component";
 import { SettingsComponent } from "./settings/settings.component";
-import { FetchDataComponent } from "./todo-boards/todo-boards.component";
+import { TodoBoardsComponent } from "./todo-boards/todo-boards.component";
+import { TodoBoardNameInputComponent } from "./todo-board-name-input/todo-board-name-input.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     NavMenuComponent,
     SettingsComponent,
-    FetchDataComponent
+    TodoBoardsComponent,
+    TodoBoardNameInputComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: "ng-cli-universal" }),
     HttpClientModule,
     FormsModule,
     RouterModule.forRoot([
-      { path: "", component: FetchDataComponent, pathMatch: "full" },
+      { path: "", component: TodoBoardsComponent, pathMatch: "full" },
       { path: "settings", component: SettingsComponent }
     ]),
     BrowserAnimationsModule,

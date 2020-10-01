@@ -1,0 +1,12 @@
+.full-width {
+  width: 100%;
+}
+
+.todo-board-name-input-container {
+  display: flex;
+  align-items: center;
+}
+
+.mat-progress-spinner {
+  margin-left: 10px;
+}
