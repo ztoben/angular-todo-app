@@ -12,9 +12,18 @@
     [todoBoard]="todoBoard"
     (nameChanged)="handleNameChanged($event, todoBoard.id)"
   ></todo-board-name-input>
+  <div class="add-new-todo-container">
+    <mat-icon>add</mat-icon>
+    <mat-form-field floatLabel="never">
+      <mat-label>New Todo</mat-label>
+      <input matInput type="text" placeholder="Add a new todo..." />
+    </mat-form-field>
+  </div>
   <ul>
     <li
-      *ngFor="let todoItem of todoBoard.todoItems"
+      *ngFor="
+        let todoItem of todoBoard.todoItems | callback: filterCompleteTodos
+      "
       class="todo-list-item"
       hover-class="hovered"
     >
@@ -26,9 +35,48 @@
           {{ todoItem.content }}
         </span>
       </mat-checkbox>
-      <span (click)="handleDeleteTodo(todoItem.todoId)" class="delete-todo-item"
-        >X</span
+      <span
+        (click)="handleDeleteTodo(todoItem.todoId)"
+        class="delete-todo-item"
       >
+        <mat-icon aria-hidden="true"> clear </mat-icon>
+      </span>
     </li>
   </ul>
+  <div class="completed-items-container">
+    <div class="completed-items-header" (click)="toggleExpandCompletedTodos()">
+      <mat-icon aria-hidden="true">{{
+        expandCompletedTodos ? "expand_more" : "expand_less"
+      }}</mat-icon>
+      <p>
+        Completed todos ({{
+          (todoBoard.todoItems | callback: filterIncompleteTodos).length
+        }})
+      </p>
+    </div>
+    <ul *ngIf="expandCompletedTodos">
+      <li
+        *ngFor="
+          let todoItem of todoBoard.todoItems | callback: filterIncompleteTodos
+        "
+        class="todo-list-item"
+        hover-class="hovered"
+      >
+        <mat-checkbox
+          [checked]="todoItem.isComplete"
+          (change)="handleCheck($event.checked, todoItem.todoId)"
+        >
+          <span class="completed-item">
+            {{ todoItem.content }}
+          </span>
+        </mat-checkbox>
+        <span
+          (click)="handleDeleteTodo(todoItem.todoId)"
+          class="delete-todo-item"
+        >
+          <mat-icon aria-hidden="true"> clear </mat-icon>
+        </span>
+      </li>
+    </ul>
+  </div>
 </div>

@@ -3,7 +3,10 @@
     class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3"
   >
     <div class="container">
-      <a class="navbar-brand" [routerLink]="['/']">Todo App</a>
+      <a class="navbar-brand header-name-container" [routerLink]="['/']">
+        <img src="assets/to-do-list.svg" alt="Todo Icon" height="30" />
+        <span>Todo App</span>
+      </a>
       <button
         class="navbar-toggler"
         type="button"
@@ -25,7 +28,7 @@
             [routerLinkActive]="['link-active']"
             [routerLinkActiveOptions]="{ exact: true }"
           >
-            <a class="nav-link text-dark" [routerLink]="['/']">Todo Boards</a>
+            <a class="nav-link text-dark" [routerLink]="['/']">Boards</a>
           </li>
           <li class="nav-item" [routerLinkActive]="['link-active']">
             <a class="nav-link text-dark" [routerLink]="['/settings']"

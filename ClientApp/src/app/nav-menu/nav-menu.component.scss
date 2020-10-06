@@ -4,6 +4,12 @@ a.navbar-brand {
   word-break: break-all;
 }
 
+.header-name-container {
+  display: inline-flex;
+  flex: 1;
+  align-items: center;
+}
+
 html {
   font-size: 14px;
 }

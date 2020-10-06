@@ -15,7 +15,7 @@ import { TodoBoard } from "src/interfaces/TodoBoard";
 @Component({
   selector: "todo-board-name-input",
   templateUrl: "./todo-board-name-input.component.html",
-  styleUrls: ["./todo-board-name-input.component.css"]
+  styleUrls: ["./todo-board-name-input.component.scss"]
 })
 export class TodoBoardNameInputComponent implements OnInit {
   @Input("todoBoard") todoBoard: TodoBoard;

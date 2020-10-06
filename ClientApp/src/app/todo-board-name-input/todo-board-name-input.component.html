@@ -1,11 +1,6 @@
 <div class="todo-board-name-input-container">
-  <mat-form-field class="full-width">
-    <mat-label>Name</mat-label>
-    <input
-      #nameInput
-      matInput
-      placeholder="Enter a name..."
-      [value]="todoBoard.name"
-    />
+  <mat-form-field class="full-width" floatLabel="never">
+    <mat-label>Title</mat-label>
+    <input #nameInput matInput [value]="todoBoard.name" />
   </mat-form-field>
 </div>

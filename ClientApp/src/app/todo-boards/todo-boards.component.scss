@@ -1,3 +1,8 @@
+ul {
+  padding: 0;
+  margin: 0 0 0 20px;
+}
+
 .todo-board {
   border: 1px solid black;
   border-radius: 5px;
@@ -10,6 +15,32 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.completed-items-container {
+  opacity: 0.6;
+}
+
+.completed-items-header {
+  padding: 0;
+  margin: 10px 0 0 10px;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.completed-items-header p {
+  margin: 0;
+  padding: 0;
+}
+
+.add-new-todo-container {
+  display: inline-flex;
+  align-items: center;
+}
+
+.mat-form-field-infix {
+  border: none;
 }
 
 .delete-todo-item {

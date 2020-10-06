@@ -55,6 +55,7 @@
     "karma-jasmine-html-reporter": "^1.4.2",
     "lint-staged": "10.4.0",
     "prettier": "2.1.2",
+    "schematics-scss-migrate": "1.1.7",
     "tslint-config-prettier": "1.18.0",
     "typescript": "3.5.3"
   },
