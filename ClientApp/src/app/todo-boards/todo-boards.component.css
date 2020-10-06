@@ -6,6 +6,21 @@
   position: relative;
 }
 
+.todo-list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.delete-todo-item {
+  cursor: pointer;
+  visibility: hidden;
+}
+
+.hovered > .delete-todo-item {
+  visibility: visible;
+}
+
 .full-width {
   width: 100%;
 }

@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using KeepClone.Models;
+using TodoApp.Models;
 
-namespace KeepClone.Controllers
+namespace TodoApp.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

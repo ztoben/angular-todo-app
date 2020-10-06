@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 
-namespace KeepClone.Models
+namespace TodoApp.Models
 {
     public class BoardContext : DbContext
     {

@@ -14,6 +14,7 @@ import { NavMenuComponent } from "./nav-menu/nav-menu.component";
 import { SettingsComponent } from "./settings/settings.component";
 import { TodoBoardsComponent } from "./todo-boards/todo-boards.component";
 import { TodoBoardNameInputComponent } from "./todo-board-name-input/todo-board-name-input.component";
+import { HoverClassDirective } from "src/directives/hover-class.directive";
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { TodoBoardNameInputComponent } from "./todo-board-name-input/todo-board-
     NavMenuComponent,
     SettingsComponent,
     TodoBoardsComponent,
-    TodoBoardNameInputComponent
+    TodoBoardNameInputComponent,
+    HoverClassDirective
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: "ng-cli-universal" }),

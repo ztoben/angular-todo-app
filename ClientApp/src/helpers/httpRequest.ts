@@ -50,3 +50,13 @@ export async function put<T>(
 ): Promise<HttpResponse<T>> {
   return await httpRequest<T>(new Request(path, args));
 }
+
+export async function httpDelete<T>(
+  path: string,
+  args: RequestInit = {
+    method: "delete",
+    headers: new Headers({ "content-type": "application/json" })
+  }
+): Promise<HttpResponse<T>> {
+  return await httpRequest<T>(new Request(path, args));
+}

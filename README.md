@@ -1,6 +1,6 @@
-# angular-keep-clone
+# angular-todo-app
 
-A google keep clone written with Angular and Dotnet Core.
+A todo app  written with Angular and Dotnet Core.
 
 ## Running the app
 ```
@@ -31,3 +31,5 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 ### - Running end-to-end tests
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+
+Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>

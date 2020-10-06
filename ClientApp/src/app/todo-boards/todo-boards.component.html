@@ -13,15 +13,22 @@
     (nameChanged)="handleNameChanged($event, todoBoard.id)"
   ></todo-board-name-input>
   <ul>
-    <li *ngFor="let todoItem of todoBoard.todoItems">
+    <li
+      *ngFor="let todoItem of todoBoard.todoItems"
+      class="todo-list-item"
+      hover-class="hovered"
+    >
       <mat-checkbox
         [checked]="todoItem.isComplete"
-        (change)="onCheck($event.checked, todoItem.todoId)"
+        (change)="handleCheck($event.checked, todoItem.todoId)"
       >
         <span [ngClass]="{ 'completed-item': todoItem.isComplete }">
           {{ todoItem.content }}
         </span>
       </mat-checkbox>
+      <span (click)="handleDeleteTodo(todoItem.todoId)" class="delete-todo-item"
+        >X</span
+      >
     </li>
   </ul>
 </div>

@@ -1,6 +1,6 @@
 import { Component, ElementRef, Inject, ViewChild } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import { get, put } from "src/helpers/httpRequest";
+import { get, httpDelete, put } from "src/helpers/httpRequest";
 import { TodoBoard } from "src/interfaces/TodoBoard";
 
 @Component({
@@ -32,7 +32,7 @@ export class TodoBoardsComponent {
     this.updateTodoBoards();
   }
 
-  async onCheck(isComplete, todoId) {
+  async handleCheck(isComplete, todoId) {
     this.isSaving = true;
 
     const { parsedBody: todoItem } = await get(
@@ -45,6 +45,18 @@ export class TodoBoardsComponent {
     await this.updateTodoBoards();
 
     setTimeout(() => (this.isSaving = false), 1000); // responses are fast enough that this is needed to provide a better ux
+  }
+
+  async handleDeleteTodo(todoId) {
+    await httpDelete(this.baseUrl + "api/TodoItems/" + todoId);
+    await this.updateTodoBoards();
+  }
+
+  async handleDeleteBoard(boardId) {
+    if (confirm("Are you sure you want to delete this board?")) {
+      await httpDelete(this.baseUrl + "api/TodoBoards/" + boardId);
+      await this.updateTodoBoards();
+    }
   }
 
   async handleNameChanged(name, id) {
