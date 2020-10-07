@@ -1,23 +1,44 @@
+<div class="saving-progress-container" *ngIf="isSaving">
+  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+</div>
+
+<div class="board-header-container">
+  <mat-icon>search</mat-icon>
+  <mat-form-field class="search-form">
+    <mat-label>Search</mat-label>
+    <input matInput type="text" />
+  </mat-form-field>
+  <button
+    class="add-board-button"
+    mat-button
+    color="primary"
+    aria-label="Add a new board"
+    (click)="handleAddBoard()"
+  >
+    <mat-icon>add</mat-icon>
+    <span>Add Board</span>
+  </button>
+</div>
+
 <div *ngIf="!todoBoards" class="spinner-container">
   <mat-spinner></mat-spinner>
 </div>
 
 <div class="todo-board" *ngFor="let todoBoard of todoBoards">
-  <mat-spinner
-    class="saving-spinner"
-    *ngIf="isSaving"
-    [diameter]="25"
-  ></mat-spinner>
-  <todo-board-name-input
-    [todoBoard]="todoBoard"
-    (nameChanged)="handleNameChanged($event, todoBoard.id)"
-  ></todo-board-name-input>
-  <div class="add-new-todo-container">
-    <mat-icon>add</mat-icon>
-    <mat-form-field floatLabel="never">
-      <mat-label>New Todo</mat-label>
-      <input matInput type="text" placeholder="Add a new todo..." />
-    </mat-form-field>
+  <div class="todo-board-header">
+    <todo-board-name-input
+      [todoBoard]="todoBoard"
+      (nameChanged)="handleNameChanged($event, todoBoard.id)"
+      class="todo-board-name-input"
+    ></todo-board-name-input>
+    <button mat-button [matMenuTriggerFor]="menu">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button (click)="handleDeleteBoard(todoBoard.id)" mat-menu-item>
+        Delete Board
+      </button>
+    </mat-menu>
   </div>
   <ul>
     <li
@@ -31,10 +52,13 @@
         [checked]="todoItem.isComplete"
         (change)="handleCheck($event.checked, todoItem.todoId)"
       >
-        <span [ngClass]="{ 'completed-item': todoItem.isComplete }">
-          {{ todoItem.content }}
-        </span>
       </mat-checkbox>
+      <todo-item-content-input
+        [ngClass]="{ 'completed-item': todoItem.isComplete }"
+        [todoItem]="todoItem"
+        (contentChanged)="handleContentChanged($event, todoItem.todoId)"
+        class="todo-item-content-input"
+      ></todo-item-content-input>
       <span
         (click)="handleDeleteTodo(todoItem.todoId)"
         class="delete-todo-item"
@@ -78,5 +102,16 @@
         </span>
       </li>
     </ul>
+  </div>
+  <div class="add-todo-container">
+    <button
+      class="add-todo-button"
+      mat-fab
+      color="accent"
+      aria-label="Add a new todo"
+      (click)="handleAddTodo(todoBoard.id)"
+    >
+      <mat-icon>add</mat-icon>
+    </button>
   </div>
 </div>

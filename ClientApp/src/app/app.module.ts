@@ -8,13 +8,19 @@ import { MatCheckboxModule } from "@angular/material/checkbox";
 import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
-import { MatIconModule } from "@angular/material";
+import {
+  MatButtonModule,
+  MatIconModule,
+  MatMenuModule,
+  MatProgressBarModule
+} from "@angular/material";
 
 import { AppComponent } from "./app.component";
 import { NavMenuComponent } from "./nav-menu/nav-menu.component";
 import { SettingsComponent } from "./settings/settings.component";
 import { TodoBoardsComponent } from "./todo-boards/todo-boards.component";
 import { TodoBoardNameInputComponent } from "./todo-board-name-input/todo-board-name-input.component";
+import { TodoItemContentInputComponent } from "./todo-item-content-input/todo-item-content-input.component";
 import { HoverClassDirective } from "src/directives/hover-class.directive";
 import { CallbackPipe } from "src/pipes/callback.pipe";
 
@@ -25,6 +31,7 @@ import { CallbackPipe } from "src/pipes/callback.pipe";
     SettingsComponent,
     TodoBoardsComponent,
     TodoBoardNameInputComponent,
+    TodoItemContentInputComponent,
     HoverClassDirective,
     CallbackPipe
   ],
@@ -39,9 +46,12 @@ import { CallbackPipe } from "src/pipes/callback.pipe";
     BrowserAnimationsModule,
     MatCheckboxModule,
     MatProgressSpinnerModule,
+    MatProgressBarModule,
     MatFormFieldModule,
     MatInputModule,
-    MatIconModule
+    MatIconModule,
+    MatButtonModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]

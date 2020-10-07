@@ -1,3 +1,18 @@
+.board-header-container {
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
+  align-items: center;
+
+  .search-form {
+    flex: 1;
+  }
+
+  .add-board-button {
+    margin: 10px;
+  }
+}
+
 ul {
   padding: 0;
   margin: 0 0 0 20px;
@@ -9,59 +24,112 @@ ul {
   background-color: lightgray;
   padding: 10px;
   position: relative;
-}
+  margin-bottom: 15px;
 
-.todo-list-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+  /deep/ .mat-form-field {
+    .mat-form-field-wrapper {
+      padding: 0;
+    }
 
-.completed-items-container {
-  opacity: 0.6;
-}
+    .mat-form-field-infix {
+      border: none;
+      padding: 0px;
+    }
 
-.completed-items-header {
-  padding: 0;
-  margin: 10px 0 0 10px;
-  display: inline-flex;
-  align-items: center;
-  cursor: pointer;
-}
+    .mat-form-field-label {
+      top: 0;
+    }
 
-.completed-items-header p {
-  margin: 0;
-  padding: 0;
-}
+    .mat-form-field-label-wrapper {
+      top: 0;
+      padding: 0px;
+    }
 
-.add-new-todo-container {
-  display: inline-flex;
-  align-items: center;
-}
+    .mat-form-field-underline {
+      bottom: 0;
+    }
 
-.mat-form-field-infix {
-  border: none;
-}
+    .mat-form-field-underline {
+    }
 
-.delete-todo-item {
-  cursor: pointer;
-  visibility: hidden;
-}
+    .mat-form-field-subscript-wrapper,
+    .mat-form-field-hint-wrapper {
+      margin: 0;
+    }
+  }
 
-.hovered > .delete-todo-item {
-  visibility: visible;
-}
+  .todo-board-header {
+    display: flex;
+    justify-content: space-between;
 
-.full-width {
-  width: 100%;
-}
+    .todo-board-name-input {
+      flex: 1;
+    }
+  }
 
-ul {
-  list-style: none;
-}
+  .todo-list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-.completed-item {
-  text-decoration: line-through;
+    .todo-item-content-input {
+      flex: 1;
+      margin: 0 5px;
+      height: 24px;
+    }
+  }
+
+  .completed-items-container {
+    opacity: 0.6;
+  }
+
+  .completed-items-header {
+    padding: 0;
+    margin: 10px 0 0 10px;
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .completed-items-header p {
+    margin: 0;
+    padding: 0;
+  }
+
+  .add-todo-container {
+    display: flex;
+    flex: 1;
+    justify-content: right;
+
+    .add-todo-button {
+      margin-left: auto;
+    }
+  }
+
+  .mat-form-field-infix {
+    border: none;
+  }
+
+  .delete-todo-item {
+    cursor: pointer;
+    visibility: hidden;
+  }
+
+  .hovered > .delete-todo-item {
+    visibility: visible;
+  }
+
+  .full-width {
+    width: 100%;
+  }
+
+  ul {
+    list-style: none;
+  }
+
+  .completed-item {
+    text-decoration: line-through;
+  }
 }
 
 .spinner-container {
@@ -72,8 +140,9 @@ ul {
   height: 150px;
 }
 
-.saving-spinner {
+.saving-progress-container {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 57px;
+  left: 0px;
+  right: 0px;
 }
